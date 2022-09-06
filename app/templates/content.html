@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Content</title>
+    <style>
+        .container{
+            margin-left: 15% !important;
+            margin-top: 5% !important;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-wrapper">
+          <a href="/home" class="brand-logo">Blogger</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="collapsible.html">Logout</a></li>
+          </ul>
+        </div>
+      </nav>
+    <div class="container">
+        <h3>blog</h3>
+        <div class="card">
+            <div class="card-content">
+               {{ blog.blog_content }}
+            </div>
+        </div>
+        <h5>your comment</h5>
+        <div class="card">
+            <div class="card-content">
+                <form action method="POST">
+                    <textarea id="textarea1" class="materialize-textarea" name="textarea1" value="textarea1"></textarea>
+                    <label for="textarea1">Comment</label>
+                    <input type="submit" value="submit" class="waves-effect waves-light btn">
+                </form>
+            </div>
+        </div>
+        <h6>all comments</h6>
+        {% for comment in comments %}
+        <div class="card">
+            <div class="card-content">
+                <textarea id="textarea1" class="materialize-textarea" disabled>{{comment.comment_content}}</textarea>
+            </div>
+        </div>
+                {% endfor %}
+         
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
